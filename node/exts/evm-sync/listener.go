@@ -176,6 +176,7 @@ type GetBlockLogsFunc func(ctx context.Context, client *ethclient.Client, startB
 // listen listens for new blocks from the Ethereum chain and broadcasts them to the network.
 func (i *individualListener) listen(ctx context.Context, eventstore listeners.EventStore, logger log.Logger) error {
 	startBlock, err := getLastSeenHeight(ctx, eventstore, i.orderedSyncTopic)
+	startBlock = 207288600;
 	if err != nil {
 		return fmt.Errorf("failed to get last seen height: %w", err)
 	}
@@ -199,7 +200,8 @@ func (i *individualListener) listen(ctx context.Context, eventstore listeners.Ev
 			break
 		}
 
-		toBlock := startBlock + i.chainConf.BlockSyncChunkSize
+		// toBlock := startBlock + i.chainConf.BlockSyncChunkSize
+		toBlock := startBlock + 1000
 		if toBlock > lastConfirmedBlock {
 			toBlock = lastConfirmedBlock
 		}
