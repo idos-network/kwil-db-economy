@@ -54,11 +54,11 @@ func init() {
 type Chain string
 
 const (
-	Ethereum    Chain = "ethereum"
-	Sepolia     Chain = "sepolia"
-	BaseSepolia Chain = "base-sepolia"
-	Hardhat			  Chain = "hardhat"
-	ArbitrumSepolia			  Chain = "arbitrumsepolia"
+	Ethereum        Chain = "ethereum"
+	Sepolia         Chain = "sepolia"
+	BaseSepolia     Chain = "base-sepolia"
+	Hardhat         Chain = "hardhat"
+	ArbitrumSepolia Chain = "arbitrumsepolia"
 )
 
 func (c Chain) String() string {
