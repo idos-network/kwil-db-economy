@@ -251,7 +251,7 @@ func (i *individualListener) listen(ctx context.Context, eventstore listeners.Ev
 			return nil
 		}
 
-		logger.Info("received new block", "block", newHeight)
+		logger.Debug("received new block", "block", newHeight)
 
 		// lastheight + 1 because we have already processed the last height
 		err := i.processEvents(ctx, startBlock+1, newHeight, eventstore, logger)
