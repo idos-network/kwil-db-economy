@@ -1892,9 +1892,6 @@ func (r *rewardExtensionInfo) startDepositListener() error {
 		UniqueName: depositListenerUniqueName(*r.ID),
 		Chain:      r.ChainInfo.Name,
 		GetLogs: func(ctx context.Context, client *ethclient.Client, startBlock, endBlock uint64, logger log.Logger) ([]*evmsync.EthLog, error) {
-			if startBlock < 207288600 {
-				startBlock = 207288600
-			}
 			escrowFilt, err := abigen.NewRewardDistributorFilterer(escrowCopy, client)
 			if err != nil {
 				return nil, fmt.Errorf("failed to bind to RewardDistributor filterer: %w", err)
